@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="UTF-8"/>
+        <title> Wizualizacja DFS/BFS </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <canvas id="canvas-graph" width="1000" height="600"> </canvas>
+            <textarea id="edges-input" placeholder="Wpisz krawędzie (w formacie: u v):"> </textarea>
+        </div>
+        <div>
+            <button onclick="getEdges()"> Dodaj krawędzie </button>
+            <button onclick="bfs(0)"> BFS </button>
+            <button onclick="dfs(0)"> DFS </button>
+            <input type="checkbox" id="edit-mode" onclick="changeMode()" checked>
+            <label for="edit-mode"> Tryb edycji grafu </label>
+        </div>
+        <script src="scripts/main.js"> </script>
+    </body>
+</html>

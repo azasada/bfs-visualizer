@@ -1,0 +1,14 @@
+canvas, textarea {
+    border: 1px solid black;
+    margin: auto;
+}
+
+#edges-input {
+    height: 600px;
+    width: 12%;
+    resize: none;
+}
+
+#error {
+    color: red;
+}

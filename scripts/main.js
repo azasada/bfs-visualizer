@@ -3,8 +3,7 @@ const FONT_SZ = 32;
 const UNVIS = 0, ON_STACK = 1, VIS = 2, CUR = 3;
 const RED = "#eb6f92", BLUE = "#31748f", GREEN = "#9ccfd8", YELLOW = "#f6c177"; 
 const BKG = "#fffaf3";
-let nodes = [], edges = [], vis = [], adj = [];
-let states = [];
+let nodes = [], edges = [], vis = [], adj = [], states = [];
 let edit_mode = true, state_id = 0;
 
 function changeMode() {
@@ -43,7 +42,6 @@ function redraw() {
 
             c.fillStyle = "black";
             c.textAlign = "center";
-            // c.fillText((i + 1).toString(), nodes[i][0] - FONT_SZ / 3, nodes[i][1] + FONT_SZ / 3);
             c.fillText((i + 1).toString(), nodes[i][0], nodes[i][1] + FONT_SZ / 3);
         }
     }
@@ -81,10 +79,9 @@ function getEdges() {
 
 function bfs(v) {
     getEdges();
-    vis = [];
+    vis = new Array(nodes.length).fill(false);
     let first_state = [];
     for (let i = 0; i < nodes.length; i++) {
-        vis.push(false);
         first_state.push(i == v ? ON_STACK : UNVIS);
     }
     states.push(first_state);
@@ -98,6 +95,7 @@ function bfs(v) {
         vis[v] = true;
 
         adj[v].forEach((u) => {
+            console.log(u + " is adjacent to " + v);
             if (!vis[u]) {
                 q.push(u);
                 in_queue.add(u);
@@ -118,7 +116,12 @@ function bfs(v) {
         }
         states.push(state);
     }
-    states.push(new Array(nodes.length).fill(VIS));
+
+    last_state = [];
+    for (let i = 0; i < nodes.length; i++) {
+        last_state.push(vis[i] ? VIS : UNVIS);
+    }
+    states.push(last_state);
 }
 
 let on_stack = new Set();
@@ -163,12 +166,14 @@ function dfs_rec(v) {
 
 function dfs(v) {
     getEdges();
-    vis = [];
-    for (let i = 0; i < nodes.length; i++) {
-        vis.push(false);
-    }
+    vis = new Array(nodes.length).fill(false);
     dfs_rec(v);
-    states.push(new Array(nodes.length).fill(VIS));
+
+    last_state = [];
+    for (let i = 0; i < nodes.length; i++) {
+        last_state.push(vis[i] ? VIS : UNVIS);
+    }
+    states.push(last_state);
 }
 
 document.getElementById("canvas-graph").onclick = function(event) {
@@ -197,12 +202,3 @@ document.onkeydown = function(event) {
         }
     }
 };
-
-/*
-1 7
-1 3
-3 4
-1 2
-2 5
-5 6
-*/

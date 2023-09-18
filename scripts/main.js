@@ -78,6 +78,12 @@ function getEdges() {
 }
 
 function bfs(v) {
+    if (edit_mode) {
+        document.getElementById("error").textContent = "Wyłącz tryb edycji.";
+        return;
+    }
+    document.getElementById("error").textContent = "";
+
     getEdges();
     vis = new Array(nodes.length).fill(false);
     let first_state = [];
@@ -114,7 +120,9 @@ function bfs(v) {
                 state.push(UNVIS);
             }
         }
-        states.push(state);
+        if (states.length == 0 || state != states[states.length - 1]) {
+            states.push(state);
+        }
     }
 
     last_state = [];
@@ -165,6 +173,12 @@ function dfs_rec(v) {
 }
 
 function dfs(v) {
+    if (edit_mode) {
+        document.getElementById("error").textContent = "Wyłącz tryb edycji.";
+        return;
+    }
+    document.getElementById("error").textContent = "";
+
     getEdges();
     vis = new Array(nodes.length).fill(false);
     dfs_rec(v);

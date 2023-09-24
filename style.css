@@ -1,27 +1,46 @@
 :root {
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-    --font-size: 1rem;
+    --font-size: 1.66rem;
     --line-height: 1.5;
 
-    --color-background: #faf4ed;
-    --color-background-alt: #fffaf3;
-    --color-text: #575279;
-    --color-text-bright: #575279;
-    --color-text-strong: #575279;
-    --color-subtext: #56949f;
-    --color-primary: #b4637a;
-    --color-accent: #286983;
+    --color-background: #191724;
+    --color-background-alt: #1f1d2e;
+    --color-overlay: #26233a;
+    --color-text: #e0d3f4;
+    --color-text-bright: #6e6a86;
+    --color-text-strong: #6e6a86;
+    --color-subtext: #31748f;
+    --color-primary: #eb6f92;
+    --color-accent: #9ccfd8;
 }
 
 body {
     background-color: var(--color-background);
     color: var(--color-text);
-    font: var(--font-size)/var(--line-height) var(--font-sans);
+    font: calc(var(--font-size)/var(--line-height)) var(--font-sans);
+}
+
+button {
+    appearance: none;
+    background-color: var(--color-text-bright);
+    border: 1px solid var(--color-background-alt);
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: var(--color-text);
+    cursor: pointer;
+    display: inline-block;
+    padding: 3px 5px;
+    position: relative;
+}
+
+input {
+    accent-color: var(--color-accent);
 }
 
 canvas, textarea {
-    border: 1px solid black;
+    background-color: var(--color-background-alt);
+    border: 1px solid var(--color-overlay);
     margin: auto;
 }
 
@@ -30,12 +49,13 @@ canvas, textarea {
     width: 12%;
     resize: none;
     vertical-align: top;
-    font: var(--font-size)/var(--line-height) var(--font-mono);
+    color: var(--color-text);
+    font: calc(0.75 * var(--font-size)/var(--line-height)) var(--font-mono);
 }
 
 #edges-input:focus {
     outline: none !important;
-    box-shadow: 0 0 10px var(--color-accent);
+    box-shadow: 0 0 10px var(--color-text-bright);
 }
 
 #error {

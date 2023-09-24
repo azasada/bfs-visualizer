@@ -1,8 +1,9 @@
-const RADIUS = 30;
+const RADIUS = 30
 const FONT_SZ = 32;
 const UNVIS = 0, ON_STACK = 1, VIS = 2, CUR = 3;
-const RED = "#eb6f92", BLUE = "#31748f", GREEN = "#9ccfd8", YELLOW = "#f6c177"; 
-const BKG = "#fffaf3";
+const RED = "#eb6f92", BLUE = "#31748f", GREEN = "#9ccfd8", YELLOW = "#f6c177", WHITE = "#e0def4";
+// const BKG = "#fffaf3";
+const BKG = "#191724";
 let nodes = [], edges = [], vis = [], adj = [], states = [];
 let edit_mode = true, state_id = 0;
 
@@ -19,12 +20,14 @@ function redraw() {
 
         c.fillStyle = BKG;
         c.fillRect(0, 0, canvas.width, canvas.height);
+        c.strokeStyle = WHITE;
         for (let i = 0; i < edges.length; i++) {
             c.beginPath();
             c.moveTo(nodes[edges[i][0]][0], nodes[edges[i][0]][1]);
             c.lineTo(nodes[edges[i][1]][0], nodes[edges[i][1]][1]);
             c.stroke();
         }
+        c.strokeStyle = "black";
         for (let i = 0; i < nodes.length; i++) {
             c.beginPath();
             c.arc(nodes[i][0], nodes[i][1], RADIUS, 0, 2 * Math.PI);

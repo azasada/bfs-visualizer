@@ -82,3 +82,30 @@ canvas, textarea {
 #queue {
     font-size: 2rem;
 }
+
+.tooltip {
+    margin-left: 50px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted var(--color-text);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 400px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    background-color: black;
+    color: var(--color-text);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

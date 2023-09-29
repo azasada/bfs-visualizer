@@ -2,28 +2,30 @@
 <html lang="pl-PL">
     <head>
         <meta charset="UTF-8"/>
-        <title> Wizualizacja DFS/BFS </title>
+        <title> Wizualizacja BFS </title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div>
-            <canvas id="canvas-graph" width="1000" height="600"> </canvas>
+            <canvas id="canvas-graph" width="916" height="550"> </canvas>
             <textarea id="edges-input" placeholder="Wpisz krawędzie&#10;(w formacie u v):"></textarea>
         </div>
         <div>
             <button onclick="getEdges()"> Dodaj krawędzie </button>
             <button onclick="bfs(0)"> BFS </button>
-            <button onclick="dfs(0)"> DFS </button>
-            <input type="checkbox" id="edit-mode" onclick="changeMode()" checked>
-            <label for="edit-mode"> Tryb edycji grafu </label>
+            <!-- <button onclick="dfs(0)"> DFS </button> -->
+            <!-- <input type="checkbox" id="edit-mode" onclick="changeMode()" checked> -->
+            <!-- <label for="edit-mode"> Tryb edycji grafu </label> -->
             <span id = "error"> </span>
-        </div>
-        <div>
-            LMB żeby dodać wierzchołek, U żeby cofnąć.
-        </div>
-        <div>
             Kolory wierzchołków: <span id="unvis"> nieodwiedzony, </span> <span id="onstack"> w kolejce / na stosie, </span>
-            <span id="done"> "skończony", </span> <span id="cur"> obecny </span>
+            <span id="done"> odwiedzony, </span> <span id="cur"> obecny </span>
+        </div>
+        <!-- <div> -->
+        <!--     LMB żeby dodać wierzchołek, U żeby cofnąć. Lewa/prawa strzałka, żeby poruszać się po stanach BFS-a. -->
+        <!-- </div> -->
+        <hr>
+        <div id="queue">
+            Kolejka: <span id="queue-content"> </span>
         </div>
         <script src="scripts/main.js"> </script>
     </body>

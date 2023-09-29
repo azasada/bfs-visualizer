@@ -45,7 +45,7 @@ canvas, textarea {
 }
 
 #edges-input {
-    height: 596px;
+    height: 546px;
     width: 12%;
     resize: none;
     vertical-align: top;
@@ -75,6 +75,10 @@ canvas, textarea {
     color: #9ccfd8;
 }
 
-#cur{
+#cur {
     color: #f6c177;
+}
+
+#queue {
+    font-size: 2rem;
 }

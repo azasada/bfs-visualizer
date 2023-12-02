@@ -1,4 +1,4 @@
 # graph-vis
-A web-app graph algorithm (DFS and BFS) visualizer.
+A JS web-app graph BFS visualizer.
 \
-The code might be of questionable quality, as this is my first time with JS.
+This project is in Polish since it was made as a teaching aid for the algorithmics club at my high school. Its point was to show the inner workings of BFS during a lesson about it.
